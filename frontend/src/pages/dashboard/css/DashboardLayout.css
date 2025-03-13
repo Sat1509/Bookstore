@@ -1,0 +1,336 @@
+/* Color scheme variables */
+:root {
+    --dark-purple: #3a345b;
+    --light-pink: #f3c8dd;
+    --medium-pink: #d183a9;
+    --muted-purple: #71557a;
+    --dark-maroon: #4b1535;
+}
+
+/* General layout */
+.dashboard-section {
+    display: flex;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: #F9FAFB; /* Light gray background */
+}
+
+/* Dashboard Aside (Left Sidebar) */
+.dashboard-aside {
+    display: none; /* Hidden by default on small screens */
+    flex-direction: column;
+    width: 200px;
+    background-color: var(--dark-purple);
+}
+
+@media (min-width: 768px) {
+    .dashboard-aside {
+        display: flex; /* Visible on medium screens and up */
+    }
+}
+
+.logo-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    width: 80px;
+    background-color: var(--light-pink);
+}
+
+.dashboard-nav {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--light-pink);
+    background-color: var(--dark-purple);
+}
+
+.dashboard-nav .nav-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    color: var(--light-pink);
+    text-decoration: none;
+}
+
+.dashboard-nav .nav-item:hover {
+    color: var(--muted-purple);
+    background-color: #332e4a; /* Darker shade for hover effect */
+}
+
+.dashboard-nav .nav-item.active {
+    color: var(--dark-purple);
+    background-color: var(--light-pink);
+}
+
+.nav-icon {
+    height: 24px;
+    width: 24px;
+}
+
+.dashboard-settings {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    width: 80px;
+    border-top: 1px solid var(--muted-purple);
+}
+
+.settings-button {
+    padding: 12px;
+    color: var(--light-pink);
+    background-color: transparent;
+    border: none;
+}
+
+.settings-button:hover {
+    color: var(--muted-purple);
+    background-color: #332e4a; /* Darker shade for hover effect */
+}
+
+.settings-icon {
+    height: 24px;
+    width: 24px;
+}
+
+/* Dashboard Content (Right Side) */
+.dashboard-content {
+    flex-grow: 1;
+    color: var(--dark-purple);
+}
+
+/* Dashboard Header */
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    padding: 16px;
+    background-color: #ffffff; /* White background */
+}
+
+.menu-button {
+    display: block;
+    padding: 8px;
+    color: var(--muted-purple);
+    background-color: transparent;
+    border: none;
+    margin-right: 8px;
+}
+
+@media (min-width: 768px) {
+    .menu-button {
+        display: none; /* Hidden on medium screens and up */
+    }
+}
+
+.menu-icon {
+    height: 24px;
+    width: 24px;
+}
+
+.search-box {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+}
+
+.search-icon {
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    top: 50%;
+    left: 8px;
+    transform: translateY(-50%);
+    color: var(--muted-purple);
+}
+
+.search-input {
+    padding: 8px 16px 8px 40px;
+    width: 100%;
+    border: 2px solid transparent;
+    background-color: var(--light-pink);
+    color: var(--muted-purple);
+    border-radius: 8px;
+}
+
+.search-input::placeholder {
+    color: var(--muted-purple);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.user-button {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    background-color: transparent;
+    border: none;
+}
+
+.user-name {
+    font-weight: bold;
+    margin-right: 4px;
+    color: var(--dark-purple);
+}
+
+.user-role {
+    font-size: 0.75rem;
+    color: var(--muted-purple);
+}
+
+.user-avatar {
+    height: 48px;
+    width: 48px;
+    margin-left: 8px;
+}
+
+.avatar-image {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.dropdown-icon {
+    height: 24px;
+    width: 24px;
+    color: var(--muted-purple);
+}
+
+.logout-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.notification-button {
+    position: relative;
+    padding: 8px;
+    color: var(--muted-purple);
+    background-color: transparent;
+    border: none;
+}
+
+.notification-badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    height: 8px;
+    width: 8px;
+    background-color: var(--dark-maroon);
+    border-radius: 50%;
+}
+
+.notification-icon {
+    height: 24px;
+    width: 24px;
+}
+
+.logout-button {
+    padding: 8px;
+    color: var(--muted-purple);
+    background-color: transparent;
+    border: none;
+}
+
+.logout-icon {
+    height: 24px;
+    width: 24px;
+}
+
+/* Dashboard Main (Content Area) */
+.dashboard-main {
+    padding: 16px;
+}
+
+.dashboard-header-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+    .dashboard-header-main {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.dashboard-title {
+    margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+    .dashboard-title {
+        margin-bottom: 0;
+    }
+}
+
+.main-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--dark-purple);
+}
+
+.sub-title {
+    font-size: 1.25rem;
+    color: var(--muted-purple);
+}
+
+.dashboard-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+    .dashboard-buttons {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.manage-books-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: var(--dark-purple);
+    background-color: var(--light-pink);
+    border: 2px solid var(--dark-purple);
+    text-decoration: none;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+@media (min-width: 768px) {
+    .manage-books-link {
+        margin-bottom: 0;
+    }
+}
+
+.add-new-book-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: #ffffff;
+    background-color: var(--dark-purple);
+    text-decoration: none;
+    border-radius: 8px;
+    margin-left: 16px;
+}
+
+.link-icon {
+    height: 24px;
+    width: 24px;
+    margin-right: 8px;
+}
+
+.white-icon {
+    color: #ffffff;
+}

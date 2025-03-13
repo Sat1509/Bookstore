@@ -1,0 +1,28 @@
+/* Recommended Section */
+.recommended-container {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  
+  .recommended-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Swiper Custom Styles */
+  .mySwiper {
+    width: 100%;
+  }
+  
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .book-card {
+    /* Custom styles for the BookCard component can be placed here */
+    width: 100%;
+  }
+  

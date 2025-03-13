@@ -1,0 +1,63 @@
+/* Genre Section Styling (Updated) */
+.genre-section {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    /* Match background color and transparency */
+    background: rgba(255, 248, 230, 0.6); /* Adjust transparency as needed */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px); /* Optional blur effect */
+  }
+  
+  .genre-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #333; /* Darken the heading text */
+  }
+  
+  .genre-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .genre-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    /* Match background color and transparency */
+    background: rgba(255, 255, 255, 0.4); /* Adjust transparency as needed */
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .genre-tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .genre-tile img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: opacity 0.3s ease; /* Fade-in effect on image load */
+  }
+  
+  .genre-tile img:not([src]) {
+    opacity: 0; /* Hide images that haven't loaded yet */
+  }
+  
+  .genre-tile p {
+    padding: 1rem;
+    font-weight: bold;
+    text-align: center;
+    color: #555; /* Darken the genre name text */
+  }
+  

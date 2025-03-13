@@ -1,0 +1,65 @@
+/* Primary Colors */
+:root {
+    --primary-color: #3a345b;
+    --secondary-color: #f3c8dd;
+    --tertiary-color: #d183a9;
+    --quaternary-color: #71557a;
+    --quinary-color: #4b1535;
+}
+
+.book-container {
+    max-width: 32rem; /* max-w-lg */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.book-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--primary-color);
+}
+
+.book-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-image {
+    margin-bottom: 32px;
+}
+
+.book-info {
+    margin-bottom: 20px;
+}
+
+.book-info-text {
+    color: var(--primary-color);
+    margin-bottom: 16px;
+}
+
+.book-info-text strong {
+    color: var(--quinary-color);
+}
+
+.btn-primary {
+    background-color: var(--tertiary-color);
+    color: white;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--quaternary-color);
+}
+
+.btn-primary span {
+    margin-left: 8px;
+}
