@@ -1,90 +1,103 @@
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { HiMiniBars3CenterLeft, HiOutlineHeart, HiOutlineShoppingCart } from "react-icons/hi2";
 import { IoSearchOutline } from "react-icons/io5";
 import { HiOutlineUser } from "react-icons/hi";
-
 import avatarImg from "../assets/avatar.png";
-import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { useAuth } from "../context/AuthContext";
-
-import './css/Navbar.css'
-
+import './css/Navbar.css';
 const navigation = [
     { name: "Dashboard", href: "/user-dashboard" },
     { name: "Orders", href: "/orders" },
     { name: "Cart Page", href: "/cart" },
     { name: "Check Out", href: "/checkout" },
 ];
-
 const Navbar = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const cartItems = useSelector((state) => state.cart.cartItems);
+    const [searchTerm, setSearchTerm] = useState('');
+    const cartItems = useSelector(state => state.cart.cartItems);
     const { currentUser, logout } = useAuth();
-
-    const dropdownRef = useRef(null);
-    const mobileMenuRef = useRef(null);
-
-    // Close the dropdown if clicked outside
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-                setIsDropdownOpen(false);
-            }
-            if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target)) {
-                setIsMobileMenuOpen(false);
-            }
-        };
-
-        document.addEventListener("click", handleClickOutside);
-        return () => document.removeEventListener("click", handleClickOutside);
-    }, []);
-
+    const navigate = useNavigate();
     const handleLogOut = () => {
         logout();
+        localStorage.removeItem('token'); // Clear the token from storage
+        navigate("/"); // Redirect to home after logout
     };
-
+    
+    const handleSearchChange = (e) => {
+        setSearchTerm(e.target.value);
+    };
+    const handleSearchSubmit = async (e) => {
+        e.preventDefault();
+        if (!searchTerm.trim()) {
+            alert('Please enter a book name.');
+            return;
+        }
+        try {
+            // Calling the /api/book/search api
+            const response = await fetch(`http://localhost:5001/api/books/search?q=${searchTerm}`);
+            if (!response.ok) {
+                if (response.status === 404) {
+                    alert('Book not available');
+                } else {
+                    throw new Error('Search failed');
+                }
+                return;
+            }
+            const data = await response.json();
+            //Check the page
+            if (Array.isArray(data) && data.length > 0) {
+                navigate(`/books/${data[0]._id}`);
+            } else {
+                // Display an alert if the book isn't found
+                alert('Book not found');
+            }
+        } catch (error) {
+            console.error('Search failed:', error);
+            alert('An error occurred while searching. Please try again.');
+        }
+    };
     return (
         <header className="navbar-container">
             <nav className="navbar">
                 {/* Left side */}
                 <div className="navbar-left">
-                    {/* Hamburger Menu for mobile */}
-                    <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="hamburger-menu">
-                        <HiMiniBars3CenterLeft className="icon" />
+                    <button className="hamburger-menu">
+                        <HiMiniBars3CenterLeft className="hamburger-icon" />
                     </button>
-
                     {/* Search input */}
                     <div className="search-container">
                         <IoSearchOutline className="search-icon" />
-                        <input
-                            type="text"
-                            placeholder="Search here"
-                            className="search-input"
-                        />
+                        <form onSubmit={handleSearchSubmit}>
+                            <input
+                                type="text"
+                                placeholder="Search here"
+                                className="search-input"
+                                value={searchTerm}
+                                onChange={handleSearchChange}
+                            />
+                        </form>
                     </div>
                 </div>
-
                 {/* Right side */}
                 <div className="navbar-right">
-                    {/* User Avatar and Dropdown */}
-                    <div>
+                    <div className="avatar-container">
                         {currentUser ? (
                             <>
                                 <button onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="avatar-btn">
                                     <img
                                         src={avatarImg}
                                         alt="User Avatar"
-                                        className={`avatar ${currentUser ? "avatar-ring" : ""}`}
+                                        className={`avatar-image ${currentUser ? 'avatar-ring' : ''}`}
                                     />
                                 </button>
                                 {/* Dropdown menu */}
                                 {isDropdownOpen && (
-                                    <div ref={dropdownRef} className="dropdown-menu">
+                                    <div className="avatar-dropdown">
                                         <ul className="dropdown-list">
                                             {navigation.map((item) => (
-                                                <li key={item.name} onClick={() => setIsDropdownOpen(false)}>
+                                                <li key={item.name}>
                                                     <Link
                                                         to={item.href}
                                                         className="dropdown-item"
@@ -105,53 +118,24 @@ const Navbar = () => {
                                     </div>
                                 )}
                             </>
-                        ) : (
-                            <Link to="/login" className="login-btn">
-                                <HiOutlineUser className="icon" />
+                        ) :  (
+                            <Link to="/login" className="login-link">
+                                <HiOutlineUser className="user-icon" />
                             </Link>
                         )}
                     </div>
-
-                    {/* Wishlist Icon */}
                     <button className="wishlist-btn">
-                        <HiOutlineHeart className="icon" />
+                        <HiOutlineHeart className="wishlist-icon" />
                     </button>
-
-                    {/* Cart Icon */}
-                    <Link
-                        to="/cart"
-                        className="cart-btn"
-                    >
-                        <HiOutlineShoppingCart className="icon" />
+                    <Link to="/cart" className="cart-link">
+                        <HiOutlineShoppingCart className="cart-icon" />
                         <span className="cart-item-count">
                             {cartItems.length > 0 ? cartItems.length : 0}
                         </span>
                     </Link>
                 </div>
             </nav>
-
-            {/* Mobile Menu */}
-            {isMobileMenuOpen && (
-                <div
-                    ref={mobileMenuRef}
-                    className="mobile-menu"
-                >
-                    <ul className="mobile-menu-list">
-                        {navigation.map((item) => (
-                            <li key={item.name} onClick={() => setIsMobileMenuOpen(false)}>
-                                <Link
-                                    to={item.href}
-                                    className="mobile-menu-item"
-                                >
-                                    {item.name}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            )}
         </header>
     );
 };
-
 export default Navbar;

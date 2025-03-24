@@ -49,10 +49,10 @@ const UpdateBook = () => {
         title: "Book Updated",
         text: "Your book is updated successfully!",
         icon: "success",
-        showCancelButton: true,
+        showCancelButton: false,
         confirmButtonColor: "#3a345b",
         cancelButtonColor: "#4b1535",
-        confirmButtonText: "Yes, It's Okay!"
+        confirmButtonText: "Done."
       });
       await refetch()
     } catch (error) {

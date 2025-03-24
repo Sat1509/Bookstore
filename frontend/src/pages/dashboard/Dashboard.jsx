@@ -3,10 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Loading from '../../components/Loading';
 import getBaseUrl from '../../utils/baseURL';
-import RevenueChart from './RevenueChart';
 import { MdIncompleteCircle } from 'react-icons/md';
-
-import './css/Dashboard.css'
+import RevenueChart from './RevenueChart';
+import './css/Dashboard.css'; // Make sure to import your CSS file
 
 const Dashboard = () => {
   const [loading, setLoading] = useState(true);
@@ -37,7 +36,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <section className="section-grid">
+      <section className="dashboard-grid">
         <div className="dashboard-item">
           <div className="icon-container purple-icon">
             <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="icon">
@@ -55,18 +54,59 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* Add other dashboard items similarly */}
+        <div className="dashboard-item">
+          <div className="icon-container green-icon">
+            <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="icon">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+            </svg>
+          </div>
+          <div>
+            <span className="data-value">₹{data?.totalSales}</span>
+            <span className="data-label">Total Sales</span>
+          </div>
+        </div>
 
-        {/* Revenue Chart Section */}
-        <div className="chart-container">
-          <div className="chart-header">Revenue Chart</div>
-          <div className="chart-content">
-            <RevenueChart />
+        <div className="dashboard-item">
+          <div className="icon-container red-icon">
+            <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="icon">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
+            </svg>
+          </div>
+          <div>
+            <span className="inline-data-value">{data?.trendingBooks}</span>
+            <span className="inline-data-percentage">(13%)</span>
+            <span className="data-label">Trending Books in This Month</span>
+          </div>
+        </div>
+
+        <div className="dashboard-item">
+          <div className="icon-container blue-icon">
+            <MdIncompleteCircle className="icon" />
+          </div>
+          <div>
+            <span className="data-value">{data?.totalOrders}</span>
+            <span className="data-label">Total Orders</span>
           </div>
         </div>
       </section>
 
-      {/* Footer Section */}
+      <section className="chart-section">
+        <div className="chart-container">
+          <div className="chart-header">The number of orders per month</div>
+          <div className="chart-content">
+            <RevenueChart />
+          </div>
+        </div>
+        {/* Removed Users by average order section */}
+
+        <div className="students-chart-container">
+          <div className="students-chart-header">Students by type of studying</div>
+          <div className="students-chart-content">
+            Chart
+          </div>
+        </div>
+      </section>
+
       <section className="footer-text">
         <a href="#" className="purple-link">Recreated on Codepen</a> with{' '}
         <a href="https://tailwindcss.com/" className="teal-link">Tailwind CSS</a> by Azri Kahar,{' '}

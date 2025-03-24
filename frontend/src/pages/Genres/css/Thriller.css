@@ -1,64 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
+:root {
+  --thriller-dark-blue: #0a1520;
+  --thriller-medium-blue: #1a2a3a;
+  --thriller-light-blue: #2c3e50;
+  --thriller-gray: #3a3a3a;
+  --thriller-light-gray: #e0e0e0;
+  --thriller-white: #ffffff;
+  --thriller-accent: #3498db;
+}
+
 .thriller-page {
   background: url('../assets/thrillerbg.jpg') no-repeat center center/cover;
-  color: #e0e0e0;
+  color: var(--thriller-light-gray);
   font-family: 'Cinzel', serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   padding: 20px;
+  box-sizing: border-box;
+  background-color: #0a1520;
 }
 
 .thriller-header {
   margin-top: 40px;
-  position: relative;
   width: 100%;
-  padding: 40px 20px;
-  background-color: #2b1e16; /* Dark Walnut background */
+  padding: 60px 40px;
+  background-color: rgba(44, 62, 80, 0.9);
   border-radius: 15px;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
 }
 
 .thriller-header-content {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  flex: 1;
+  align-items: center;
 }
 
 .thriller-text-content {
   flex: 1;
-  padding-right: 20px;
-  justify-content: center; /* Centers the text vertically */
-  align-items: center; /* Centers the text horizontally */
-  text-align: center; /* Centers the text horizontally */
-
+  padding-right: 40px;
 }
 
 .thriller-title {
-  font-size: 3.4rem;
-  margin-bottom: 1rem;
-  letter-spacing: 2px;
+  font-size: 2.8rem;
+  margin-bottom: 1.2rem;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  color: #efdcd3; /* Parchment Beige text color */
+  color: var(--thriller-white);
+  font-weight: 700;
 }
 
 .thriller-subtitle {
-  font-size: 1.35rem;
+  font-size: 1.1rem;
   font-style: italic;
-  color: #aa574b; /* Soft Brick Accent */
-  white-space: pre-line; /* Preserves line breaks */
-  line-height: 1.6; /* Improves readability for the poem */
-  padding-bottom: 20px;
+  color: var(--thriller-light-gray);
+  white-space: pre-line;
+  line-height: 1.8;
+  padding-bottom: 25px;
 }
 
 .thriller-header-image {
-  max-width: 22%;
+  max-width: 28%;
   height: auto;
-  border: 2px solid #aa574b; /* Adds a border around the image */
-  border-radius: 10px; /* Rounds the corners of the image */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Adds a shadow to the image */
-  
+  border: 2px solid var(--thriller-accent);
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
+
+.thriller-unravel-button {
+  background-color: var(--thriller-accent);
+  color: var(--thriller-white);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.thriller-unravel-button:hover {
+  background-color: #207ab0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.thriller-books {
+  display: flex;
+  justify-content: space-between; /* Align cards left and right */
+  flex-wrap: wrap; /* Allow wrapping for responsiveness */
+  gap: 20px; /* Add spacing between cards */
+  margin-top: 20px;
+}
+
+.thriller-book-card {
+  width: 45%; /* Adjust width so two cards fit side by side */
+  background-color: rgba(58, 58, 58, 0.8); /* Semi-transparent gray */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+  text-align: center; /* Center-align content */
+}
+
+.thriller-book-card:hover {
+  transform: scale(1.02);
+  box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.thriller-book-cover {
+  width: 40%; /* Let image adjust automatically */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 100%; /* Ensure it doesn't overflow */
+  border-radius: 4px;
+}
+
+.thriller-book-card {
+  text-decoration: none; /* Remove underline */
+}
+
+.thriller-book-card:hover {
+  text-decoration: none; /* No underline on hover */
+  color: inherit; /* Keep text color consistent */
+}
+
+
+.thriller-book-info {
+  margin-top: 15px; /* Add spacing between image and text */
+}
+
+.thriller-book-title {
+  font-size: 1.5rem;
+  color: var(--thriller-white);
+}
+
+.thriller-book-description {
+  font-size: 1rem;
+  color: var(--thriller-light-gray);
+}
+
+.thriller-read-more {
+  background-color: var(--thriller-medium-blue);
+  color: var(--thriller-white);
+}
+
+.thriller-read-more {
+  background-color: var(--thriller-accent, #3498db); /* Use the accent color or default to a blue shade */
+  color: var(--thriller-white, #ffffff);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin-top: 15px;
+}
+
+.thriller-read-more:hover {
+  background-color: var(--thriller-dark-blue, #2c3e50); /* Darker shade on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.thriller-read-more:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+.thriller-read-more:hover {
+  background-color: var(--thriller-light-blue);
+  transform: scale(1.05);
+}
+
+.thriller-quote {
+  text-align: center;
+  font-style: italic;
+  margin-top: 40px;
+  font-size: 1.2rem;
+  color: var(--thriller-white);
+}
+
+.thriller-quote span {
+  display: block;
+  font-size: 1rem;
+  color: var(--thriller-light-gray);
+  margin-top: 10px;
+}
+
 
 @media (max-width: 768px) {
   .thriller-header-content {
@@ -75,139 +211,4 @@
   .thriller-header-image {
     max-width: 80%;
   }
-}
-
-.thriller-unravel-button {
-  background-color: #aa574b; /* Soft Brick Accent */
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.thriller-unravel-button:hover {
-  background-color: #83092e; /* Darker shade on hover */
-}
-
-.thriller-books {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-  margin-top: 20px;
-}
-
-.thriller-book-card {
-  display: flex;
-  flex-direction: row; /* Ensures image stays on the left */
-  align-items: center; /* Aligns text and image */
-  background-color: #7c5b41;
-  padding: 20px;
-  border-radius: 8px;
-  max-width: 700px;
-  width: 100%;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
-  
-}
-
-.thriller-book-cover {
-  width: 30%;
-  height: auto;
-  border-radius: 4px;
-  flex-shrink: 0; /* Prevents the image from shrinking */
-}
-
-.thriller-book-info {
-  margin-left: 20px; /* Adds spacing between image and text */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex-grow: 1; /* Ensures text takes available space */
-  font-family: 'Cinzel', serif;
-}
-
-
-.thriller-book-card:hover {
-  transform: scale(1.02);
-  box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.4);
-}
-
-
-
-.thriller-book-title {
-  font-size: 1.5rem;
-  color: #efdcd3;
-  margin-bottom: 8px;
-  align-items: center;
-  display: flex; /* Make it a flex container */
-  justify-content: center; /* Horizontally center */
-  align-items: center; /* Vertically center */
-}
-
-.thriller-book-description {
-  font-size: 1rem;
-  color: #f5e9dc;
-  margin-bottom: 10px;
-}
-
-/* Read More Button */
-.thriller-read-more {
-  background-color: #aa574b;
-  color: #efdcd3;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-  
-  transition: background 0.3s, transform 0.2s;
-  align-self: center;
-}
-
-.thriller-read-more:hover {
-  background-color: #541c13;
-  transform: scale(1.05);
-}
-
-/* Quote Section */
-.thriller-quote {
-  text-align: center;
-  font-style: italic;
-  margin-top: 40px;
-  font-size: 1.2rem;
-  color: #efdcd3;
-}
-
-.thriller-quote span {
-  display: block;
-  font-size: 1rem;
-  color: #aa574b;
-  margin-top: 10px;
-}
-
-/* Back Button */
-.thriller-back-home {
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
-}
-
-.thriller-back-button {
-  text-align: center;
-  font-size: 1rem;
-  color: #efdcd3;
-  text-decoration: none;
-  background-color: #541c13;
-  padding: 10px 16px;
-  border-radius: 4px;
-  transition: background 0.3s, transform 0.2s;
-}
-
-.thriller-back-button:hover {
-  background-color: #aa574b;
-  transform: scale(1.05);
 }

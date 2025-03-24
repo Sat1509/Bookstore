@@ -1,10 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link from React Router
-import fantasyImage from "../../assets/fantasy.png";
+import { Link } from "react-router-dom";
+import fantasyImage from "../../assets/fantasy.jpg";
 import romanceImage from "../../assets/romance.jpg";
 import dystopianImage from "../../assets/dystopian.jpg";
-import thrillerImage from "../../assets/thrillers.jpg";
-import "./css/GenreSection.css"; // Assuming styles are in the same file
+import thrillerImage from "../../assets/thriller.jpg";
+import "./css/GenreSection.css";
 
 const GenreSection = () => {
   const genres = [
@@ -12,12 +12,11 @@ const GenreSection = () => {
     { name: "Romance", image: romanceImage, link: "/romance" },
     { name: "Dystopian", image: dystopianImage, link: "/dystopian" },
     { name: "Thriller", image: thrillerImage, link: "/thriller" },
-    
   ];
 
   return (
-    <div className="genre-section fade-in">
-      <h2>Dive into Different Genres</h2>
+    <div className="genre-section">
+      <h2 className="genre-heading">Dive into Different Genres</h2>
       <div className="genre-grid">
         {genres.map((genre, index) => (
           <Link to={genre.link} key={index} className="genre-tile">
@@ -31,5 +30,3 @@ const GenreSection = () => {
 };
 
 export default GenreSection;
-
-

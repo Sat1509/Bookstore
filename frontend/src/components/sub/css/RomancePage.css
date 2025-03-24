@@ -15,7 +15,7 @@
   background-size: cover;
   border-bottom: 5px solid #ab3f60;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  animation: fadeIn 2s ease-in-out;
+  
 }
 
 
@@ -86,12 +86,12 @@
 .romance-book-list {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 115px;
   flex-wrap: wrap;
 }
 
 .romance-book-card {
-  width: 30%;
+  width: 40%; /* Set width to match Thriller */
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 15px;
   overflow: hidden;
@@ -100,6 +100,7 @@
   margin-bottom: 30px;
   display: flex;
   flex-direction: column;
+  padding: 10px;
 }
 
 .romance-book-card:hover {
@@ -107,16 +108,26 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
+.romance-book-card {
+  text-decoration: none;
+  color: inherit;
+}
+
+.romance-book-card:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
 .romance-book-cover {
-  width: 60%;
+  width: 40%;
   height: auto;
-  margin-top: 10px;
+  
   border-radius: 10px;
   border: 3px solid #ab3f60;
 }
 
 .romance-book-cover-container {
-  height: 400px;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -124,7 +135,7 @@
 }
 
 .romance-book-info {
-  padding: 20px;
+  padding: 10px;
   background-color: rgba(255, 255, 255, 0.9);
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -139,6 +150,8 @@
   color: #ab3f60;
   margin-bottom: 15px;
   font-family: 'Playfair Display', serif;
+  text-align: center;
+
 }
 
 .romance-book-description {
@@ -147,6 +160,7 @@
   margin-bottom: 15px;
   font-family: 'Lora', serif;
   line-height: 1.5;
+  text-align: center;
 }
 
 .romance-read-more {
@@ -159,7 +173,8 @@
   font-size: 1rem;
   transition: background-color 0.3s ease;
   text-align: center;
-  align-self: flex-start;
+  align-self: center;
+
 }
 
 .romance-read-more:hover {

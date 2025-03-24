@@ -10,6 +10,10 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react()],
+    server: {
+      port: 5174, // Set the desired port
+      strictPort: true // Ensures it doesn't switch to a different port if 5174 is unavailable
+    },
     define: {
       'process.env': env,
     },

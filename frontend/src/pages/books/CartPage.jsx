@@ -33,10 +33,10 @@ const CartPage = () => {
                             <li key={product?._id} className="cart-item">
                                 <img src={getImgUrl(product?.coverImage)} alt={product?.title} className="cart-item-image" />
                                 <div className="cart-item-details">
-                                    <h3>
+                                    <h3 className="cart-item-heading">
                                         <Link to='/'>{product?.title}</Link>
                                     </h3>
-                                    <p className="cart-item-price">${product?.newPrice}</p>
+                                    <p className="cart-item-price"><strong>Price: </strong>${product?.newPrice}</p>
                                     <p className="cart-item-category"><strong>Category: </strong>{product?.category}</p>
                                     <p className="cart-item-qty"><strong>Qty:</strong> 1</p>
                                     <button onClick={() => handleRemoveFromCart(product)} className="remove-item">Remove</button>

@@ -23,10 +23,10 @@ const AddBook = () => {
         title: "Book added",
         text: "Your book is uploaded successfully!",
         icon: "success",
-        showCancelButton: true,
+        showCancelButton: false,
         confirmButtonColor: "#3a345b",
         cancelButtonColor: "#4b1535",
-        confirmButtonText: "Yes, It's Okay!"
+        confirmButtonText: "Done."
       });
       reset();
       setImageFileName('');
@@ -75,6 +75,10 @@ const AddBook = () => {
             { value: 'fiction', label: 'Fiction' },
             { value: 'horror', label: 'Horror' },
             { value: 'adventure', label: 'Adventure' },
+            {value: 'fantasy', label: 'Fantasy' },
+            { value: 'romance', label: 'Romance' },
+            { value: 'thriller', label: 'Thriller' },
+            { value: 'Dystopian', label: 'Dystopian' },
           ]}
           register={register}
         />

@@ -17,10 +17,10 @@ import UserDashboard from "../pages/dashboard/users/UserDashboard";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 
-import Fantasy from "../pages/Genres/Fantasy";
+import Fantasy from "../pages/Genres/FantasyFinal";
 import Romance from "../pages/Genres/Romance";
 import Dystopian from "../pages/Genres/Dystopian";
-import Thriller from "../pages/Genres/Thriller";
+import Thriller from "../pages/Genres/ThrillerNew";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +34,7 @@ const router = createBrowserRouter([
       { path: "register", element: <Register /> },
       { path: "cart", element: <CartPage /> },
       { path: "checkout", element: <PrivateRoute><CheckoutPage /></PrivateRoute> },
+    
       { path: "books/:id", element: <SingleBook /> },
       { path: "user-dashboard", element: <PrivateRoute><UserDashboard /></PrivateRoute> },
       { path: "dystopian", element: <Dystopian /> },

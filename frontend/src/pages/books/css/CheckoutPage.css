@@ -9,8 +9,8 @@
 }
 
 .checkout-wrapper {
-    background: #3E2C41; /* Dark Academia */
-    color: #F5E1DA;
+    background: #f3c8dd; /* Dark Academia */
+    color: #002147;
     padding: 2rem;
     border-radius: 10px;
     max-width: 600px;
@@ -21,24 +21,24 @@
 .checkout-title {
     font-size: 24px;
     font-weight: bold;
-    color: #FADADD; /* Romance */
+    color: #002147; /* Romance */
     margin-bottom: 1rem;
 }
 
 .checkout-text {
     font-size: 16px;
-    color: #E0AAFF; /* Fantasy */
+    color: #002147; /* Fantasy */
 }
 
 .checkout-form-container {
-    background: #1A1A2E; /* Dystopian */
+    background: #002147; /* Dystopian */
     padding: 2rem;
     border-radius: 10px;
 }
 
 .form-header {
     margin-bottom: 1rem;
-    color: #E94560; /* Dystopian */
+    color: white; /* Dystopian */
 }
 
 .form-title {
@@ -54,7 +54,7 @@ label {
     display: block;
     font-size: 14px;
     margin-bottom: 0.5rem;
-    color: #D1BFA9; /* Parchment */
+    color: #f3c8dd; /* Parchment */
 }
 
 .input-field {
@@ -62,7 +62,7 @@ label {
     padding: 0.5rem;
     border-radius: 5px;
     border: none;
-    background: #D1BFA9; /* Parchment */
+    background: #f3c8dd; /* Parchment */
     color: #3E2C41;
 }
 

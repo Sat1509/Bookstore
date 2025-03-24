@@ -8,11 +8,11 @@
     margin-bottom: 10px;
 }
 
-.banner-subtitle {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
+.banner-intro {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 0.9rem;
     font-weight: 400;
-    color: #d183a9;
+    color: #f3c8dd !important;
     max-width: 500px;
     line-height: 1.5;
     margin-bottom: 20px;
@@ -42,7 +42,7 @@
     justify-content: center;
     gap: 40px;
     padding: 40px;
-    background-color: #3a345b;
+    background-color: #002147;
 }
 
 .banner-text {

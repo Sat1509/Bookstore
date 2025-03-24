@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { HiViewGridAdd } from "react-icons/hi";
 import { MdOutlineManageHistory } from "react-icons/md";
-
-import './css/DashboardLayout.css'
+import { FaTh, FaUser, FaSignOutAlt, FaHome } from 'react-icons/fa'; // Import FaHome icon
+import './css/DashboardLayout.css';
 
 const DashboardLayout = () => {
     const navigate = useNavigate();
@@ -16,16 +16,11 @@ const DashboardLayout = () => {
     return (
         <section className="dashboard-section">
             <aside className="dashboard-aside">
-                <a href="/" className="logo-link">
-                    <img src="/fav-icon.png" alt="Logo" />
+                <a href="/" className="home-logo-link"> {/* Home logo link */}
+                    <FaHome className="home-logo-icon" /> {/* Home logo icon */}
                 </a>
+                
                 <nav className="dashboard-nav">
-                    <a href="#" className="nav-item">
-                        <span className="sr-only">Folders</span>
-                        <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="nav-icon">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-                        </svg>
-                    </a>
                     <Link to="/dashboard" className="nav-item active">
                         <span className="sr-only">Dashboard</span>
                         <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="nav-icon">
@@ -51,7 +46,6 @@ const DashboardLayout = () => {
                     </button>
                 </div>
             </aside>
-
             <div className="dashboard-content">
                 <header className="dashboard-header">
                     <button className="menu-button">
@@ -60,38 +54,18 @@ const DashboardLayout = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" />
                         </svg>
                     </button>
-                    <div className="search-box">
-                        <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className="search-icon">
-                            <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
-                        </svg>
-                        <input type="text" role="search" placeholder="Search..." className="search-input" />
-                    </div>
+                    
                     <div className="user-info">
-                        <button className="user-button">
-                            <span className="user-name">Grace Simmons</span>
-                            <span className="user-role">Lecturer</span>
-                            <span className="user-avatar">
-                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="User profile" className="avatar-image" />
-                            </span>
-                            <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className="dropdown-icon">
-                                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                            </svg>
-                        </button>
-                        <div className="logout-buttons">
-                            <button className="notification-button">
-                                <span className="sr-only">Notifications</span>
-                                <span className="notification-badge"></span>
-                                <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="notification-icon">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                                </svg>
-                            </button>
-                            <button onClick={handleLogout} className="logout-button">
-                                <span className="sr-only">Log out</span>
-                                <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="logout-icon">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                                </svg>
-                            </button>
+                        <div className="user-section">
+                            <FaUser className="user-avatar" />
+                            <div className="user-details">
+                                <span className="user-name">Author</span>
+                            </div>
                         </div>
+                        <button onClick={handleLogout} className="logout-button">
+                            <FaSignOutAlt className="logout-icon" />
+                            Logout
+                        </button>
                     </div>
                 </header>
 

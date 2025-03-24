@@ -16,10 +16,11 @@ async function createAdmin() {
             return process.exit();
         }
 
-        const hashedPassword = await bcrypt.hash("admin123", 10);
+        //await bcrypt.hash("admin123", 10);
+        
         const admin = new User({
-            username: "admin",
-            password: hashedPassword,
+            username: ".....", //enter a username for admin profile
+            password: ".....", //enter a password for admin profile
             role: "admin"
         });
 

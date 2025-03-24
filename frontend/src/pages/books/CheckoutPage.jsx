@@ -57,7 +57,7 @@ const CheckoutPage = () => {
             <div className="checkout-wrapper">
                 <div>
                     <h2 className="checkout-title">Cash On Delivery</h2>
-                    <p className="checkout-text">Total Price: ${totalPrice}</p>
+                    <p className="checkout-text">Total Price: ₹{totalPrice}</p>
                     <p className="checkout-text">Items: {cartItems.length > 0 ? cartItems.length : 0}</p>
                 </div>
 

@@ -1,55 +1,54 @@
-
-// FantasyPage.js
-
-import React from "react";
-import './css/FantasyPage.css';
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import sixofcrows from "../../assets/sixofcrows.jpeg"
-import poppywar from "../../assets/poppywar.jpg"
+import './css/FantasyPage.css';
+import sixofcrows from "../../assets/sixofcrows.jpeg";
+import poppywar from "../../assets/poppywar.jpg";
+import fantasybg from "../../assets/fantasybg.jpeg";
+import { useFetchAllBooksQuery } from '../../redux/features/books/booksApi'; // Adjust the import path as needed
 
-function FantasyPage() {
+function FantasyPage({ onExploreClick }) {
+  const { data: allBooks = [] } = useFetchAllBooksQuery();
+
+  const getBookId = (title) => {
+    const book = allBooks.find(book => book.title === title);
+    return book ? book._id : null;
+  };
+
   return (
-    <div className="fantasy-page">
-      <section className="hero-section">
-        <h1 className="hero-title">Worlds Beyond the Veil</h1>
-        <p className="hero-subtitle">Escape into the realms of magic, mystery, and adventure.</p>
-        <button className="cta-btn">Explore Our Fantasy Collection</button>
-      </section>
+    <div className="fantasy-page" style={{backgroundImage: `url(${fantasybg})`}}>
+      <div className="fantasy-page-container">
+        <section className="fantasy-hero-section">
+          <h1 className="fantasy-hero-title">Worlds Beyond the Veil</h1>
+          <p className="fantasy-hero-subtitle">Escape into the realms of magic, mystery, and adventure.</p>
+          <button className="fantasy-cta-btn" onClick={onExploreClick}>Explore Our Fantasy Collection</button>
+        </section>
+        <section className="fantasy-intro">
+          <p>
+            In these worlds of magic and wonder, characters navigate realms of danger, romance, and deep mystery. Immerse yourself in tales that evoke both dreams and reality.
+          </p>
+        </section>
 
-      <section className="intro">
-        <p>
-          In these worlds of magic and wonder, characters navigate realms of danger, romance, and deep mystery. Immerse yourself in tales that evoke both dreams and reality.
-        </p>
-      </section>
+        <section className="fantasy-featured-books">
+          <Link to={`/books/${getBookId("The Poppy War")}`} className="fantasy-book-card">
+            <img src={poppywar} alt="The Poppy War" className="fantasy-book-cover" />
+            <h3>The Poppy War</h3>
+            <p>"An epic tale of war, magic, and tragedy, set against the backdrop of ancient China." - <i>Book Review</i></p>
+            <button className="fantasy-learn-more-btn">Learn More</button>
+          </Link>
+          
+          <Link to={`/books/${getBookId("Six of Crows")}`} className="fantasy-book-card">
+            <img src={sixofcrows} alt="Six of Crows" className="fantasy-book-cover" />
+            <h3>Six of Crows</h3>
+            <p>"A gripping tale of heists, criminals, and unlikely heroes." - <i>Book Review</i></p>
+            <button className="fantasy-learn-more-btn">Learn More</button>
+          </Link>
+        </section>
 
-      <section className="featured-books">
-        <div className="book-card">
-          <img src={poppywar} alt="The Poppy War" className="book-cover" />
-          <h3>The Poppy War</h3>
-          <p>"An epic tale of war, magic, and tragedy, set against the backdrop of ancient China." - <i>Book Review</i></p>
-          <button className="learn-more-btn">Learn More</button>
-        </div>
-        
-        <div className="book-card">
-          <img src={sixofcrows} alt="Six of Crows" className="book-cover" />
-          <h3>Six of Crows</h3>
-          <p>"A gripping tale of heists, criminals, and unlikely heroes." - <i>Book Review</i></p>
-          <button className="learn-more-btn">Learn More</button>
-        </div>
-      </section>
-
-      <section className="related-books">
-        <h3>Explore More</h3>
-        <div className="related-books-carousel">
-          {/* More book covers here */}
-        </div>
-      </section>
-
-      <Link to="/">Go Back</Link>
-
-      <footer className="footer-fantasy">
-      <p>&copy; 2025 Bookstore. All rights reserved.</p>
-      </footer>
+        <section className="fantasy-related-books">
+          <div className="fantasy-related-books-carousel">
+          </div>
+        </section>
+      </div>
     </div>
   );
 }

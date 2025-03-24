@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom"; // Import Link
 import footerLogo from "../assets/footer-logo.png";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 import './css/footer.css'; // Import the CSS file
@@ -11,12 +12,10 @@ const Footer = () => {
         {/* Left Side - Logo and Nav */}
         <div className="left-section">
           <img src={footerLogo} alt="Logo" className="logo" />
-          <ul className="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
+          <div className="footer-links">
+            <Link to="/">Home</Link> {/* Use Link instead of a tag */}
+            <a href="#contact">Contact</a>
+          </div>
         </div>
 
         {/* Right Side - Newsletter */}
@@ -46,9 +45,6 @@ const Footer = () => {
         <div className="social-icons">
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
             <FaFacebook size={24} />
-          </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-            <FaTwitter size={24} />
           </a>
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
             <FaInstagram size={24} />
